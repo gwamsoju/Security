@@ -40,8 +40,8 @@ spring:
               - public_profile
 
           naver:
-            client-id: CA7FMrYlnGRrO3KjlX4p
-            client-secret: OEcQxpXkUT
+            client-id: 
+            client-secret: 
             scope:
               - name
               - email
