@@ -26,15 +26,15 @@ spring:
       client:
         registration:
           google:
-            client-id: 215762037130-r4g34crk38mq7iq0ck6ak8gi0sau5979.apps.googleusercontent.com
-            client-secret: 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
+            client-id:
+            client-secret: 
             scope:
               - email
               - profile
 
           facebook:
-            client-id: 358509953057852
-            client-secret: 4e396a694adba01d9baf2e501f644021
+            client-id:
+            client-secret:
             scope:
               - email
               - public_profile
