@@ -21,7 +21,8 @@ import java.util.Map;
 public class PrincipalDetails implements UserDetails, OAuth2User {
 
     private User1 user1;
-    private Map<String,Object> attributes;
+    private Map<String,Object> attributes; // OAuth2User oAuth2User = super.loadUser(userRequest); 로 받아온 정보가 Map 형태이기 때문에
+
 
     // 일반 로그인 시 사용하는 생성자
     public PrincipalDetails(User1 user1) {

@@ -4,6 +4,7 @@ import com.cos.security1.config.auth.PrincipalDetails;
 import com.cos.security1.config.oauth.provider.GoogleUserInfo;
 import com.cos.security1.config.oauth.provider.OAuth2UserInfo;
 import com.cos.security1.config.oauth.provider.facebookUserInfo;
+import com.cos.security1.config.oauth.provider.naverUserInfo;
 import com.cos.security1.repository.UserRepository;
 import com.cos.security1.vo.User1;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,8 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -42,8 +45,12 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
             System.out.println("페이스북 로그인 요청");
             oAuth2UserInfo = new facebookUserInfo(oAuth2User.getAttributes());
 
+        }else if(userRequest.getClientRegistration().getRegistrationId().equals("naver")){
+            System.out.println("네이버 로그인 요청");
+            oAuth2UserInfo = new naverUserInfo((Map)oAuth2User.getAttributes().get("response"));
+
         }else{
-            System.out.println("페이스북과 구글만 지원한다.");
+            System.out.println("페이스북과 구글,네이버만 지원한다.");
         }
 
         String provider = oAuth2UserInfo.getProvider();
